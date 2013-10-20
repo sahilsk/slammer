@@ -1,5 +1,5 @@
 {
-	"name":"Slammer..just another chat client",
+	"name":"Slammer-client",
 	"version": "0.0.1",
 	"dependencies":{
 		"socket.io" : "0.9",
