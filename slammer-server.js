@@ -41,16 +41,16 @@ io.sockets.on('connection', function (client) {
 	});
 	
 	client.on("disconnect", function(data){
+		var tmpArray = new Array();
+		for( var k in connectedUsers){
+			if( connectedUsers[k].id != client.id){
+				tmpArray.push( connectedUsers[k]);
+			}				
+		}
+		connectedUsers = tmpArray;	
+		
 		client.get('nick', function(err, name){
 			
-			var tmpArray = new Array();
-			for( var k in connectedUsers){
-				if( connectedUsers[k].name != name){
-					tmpArray.push( connectedUsers[k]);
-				}				
-			}
-			connectedUsers = tmpArray;		
-		
 			client.broadcast.emit('leave', {nick:name, id:client.id, onlineUsers:connectedUsers });
 			console.log( name + ": " + " disconnected.");
 		});
