@@ -4,7 +4,13 @@ var app = express()
   , http = require('http').createServer(app)
   , io = require('socket.io').listen(http);
 
-http.listen(80);
+var port = process.env.PORT || 5000;
+//http.listen(port);
+
+http.listen(port, function(){
+	console.log("Listening on " +port);
+});
+
 app.use( "/js", express.static(__dirname + '/js'));
 app.use( "/images", express.static(__dirname + '/images'));
 
