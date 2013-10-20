@@ -15,8 +15,7 @@
 					return "&quot;";
 			}
 		});
-}
-
+	}
 	
 	function submitMessage(isColored){
 		var message = htmlEscape($messageBox.val()).trim();
@@ -89,7 +88,7 @@
 	
 	
 	/*
-	||	 Socket.io  Script
+	||	 Socket.io events handlers
 	||
 	*/
 
