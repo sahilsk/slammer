@@ -11,12 +11,12 @@ http.listen(port, function(){
 	console.log("Listening on " +port);
 });
 
-app.use( "/js", express.static(__dirname + '/js'));
-app.use( "/images", express.static(__dirname + '/images'));
+app.use( "/js", express.static(__dirname + '/public/js'));
+app.use( "/images", express.static(__dirname + '/public/images'));
 
 
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendfile(__dirname + '/public/index.html');
 });
 
 var connectedUsers = new Array();
