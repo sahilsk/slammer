@@ -28,7 +28,6 @@
 			return;
 		}
 		
-		console.log( message);
 		socket.emit('message',  message);
 		var cssClass = bgColorClasses[parseInt( Math.random() *4)];
 		if(isColored == false){
