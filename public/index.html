@@ -46,6 +46,17 @@
 				position: relative;
 			}
 			
+			#messageBox{
+				position:relative;
+				width:90%;
+			}
+			#messageBox h3{
+				color: rgb(189, 183, 189);
+				text-align: right;
+				margin-top: -30px;
+				margin-right: 80px;
+			}
+			
 			#users{
 				width: 100%;
 				min-height:200px;
@@ -164,9 +175,11 @@
 			</div>
 			
 			<div id="messageBox">
-				<textarea id="newMessage" placeholder="enter here" style="width:80%"></textarea>
-				<button id="submit" style="position:absolute;right:0px bottom:0px;"> Submit </button>	
+				<textarea id="newMessage" placeholder="Enter your text here" style="width:93%" disabled="true" ></textarea>
+				<button id="submit" style="position:absolute;right:0px;"> Submit </button>
+				<h3> <span>0 </span>/1024 </h3>
 			</div>
+			
 			<div id="users">
 				<ul>
 					

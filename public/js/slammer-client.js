@@ -23,6 +23,12 @@
 		if( message.length <=0){
 			return;
 		}
+		
+		if( message.length > 1024){
+			alert("text too long("+ message.length + ").");
+			return;
+		}
+		
 		console.log( message);
 		socket.emit('message',  message);
 		var cssClass = bgColorClasses[parseInt( Math.random() *4)];
@@ -47,9 +53,10 @@
 				event.preventDefault();
 				submitMessage(false);
 			}
+		$("#messageBox h3 span").text( $(this).val().length);
 	});
 	
-	
+
 	function showNotification(level, title, message){
 		$("body").prepend(
 	
@@ -94,7 +101,8 @@
 			nick = parseInt(Math.random() * 10000);
 			alert("You are identified as " +nick);
 		}
-			
+		
+		$("#newMessage").removeAttr("disabled");
 		socket.emit("join", nick);
 	});
 
@@ -110,7 +118,6 @@
 	 
 	socket.on("status", function(data){	
 		showNotification("success", "Slammer", data.message);
-		console.log( data.onlineUsers);
 		
 		for( var k in data.onlineUsers){
 			console.log( data.onlineUsers[k]);
