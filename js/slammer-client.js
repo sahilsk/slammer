@@ -2,17 +2,36 @@
 	$messageTemplate = $("#message_template").html();
 	$messageBox = $("#newMessage");
 	
-	
+	function htmlEscape(text){
+		return text.replace(/[<>”&]/g, function(match, pos, originalText){
+			switch(match){
+				case "<":
+					return "&lt;";
+				case ">":
+					return "&gt;";
+				case "&":
+					return "&amp;";
+				case "\"":
+					return "&quot;";
+			}
+		});
+}
+
 	
 	function submitMessage(isColored){
-		socket.emit('message', $messageBox.val() );
+		var message = htmlEscape($messageBox.val()).trim();
+		if( message.length <=0){
+			return;
+		}
+		console.log( message);
+		socket.emit('message',  message);
 		var cssClass = bgColorClasses[parseInt( Math.random() *4)];
 		if(isColored == false){
 			cssClass = "";
 		}
 		$("#messages ul").append(
 				"<li class='"+ cssClass +"'>" +
-					_.template($messageTemplate, {nick:'me', message:	$messageBox.val() })	+
+					_.template($messageTemplate, {nick:'me', "message":	message })	+
 				"</li>");
 		$messageBox.val("");
 	}
