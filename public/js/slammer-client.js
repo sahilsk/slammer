@@ -18,7 +18,7 @@
 	}
 	
 	function submitMessage(isColored){
-		var message = htmlEscape($messageBox.val()).trim();
+		var message = htmlEscape( $.trim( $messageBox.val()));
 		if( message.length <=0){
 			return;
 		}
