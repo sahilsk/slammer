@@ -38,6 +38,8 @@
 					_.template($messageTemplate, {nick:'me', "message":	message })	+
 				"</li>");
 		$messageBox.val("");
+		$("#messages").scrollTop(10522);
+
 	}
 	
 	
@@ -88,8 +90,6 @@
 	/*
 	**
 	*/
-	//setInterval( function(){ $("#server-status").css('background-color', 'green') ;}, 500);
-	//setInterval( function(){ $("#server-status").css('background-color', 'yellow !important') ;}, 1000);
 	
 	
 	/*
@@ -120,6 +120,8 @@
 		_.template($messageTemplate, data)	+
 			"</li>"
 		);
+		$("#messages").scrollTop(10522);
+		
 	 });
 	 
 	socket.on("status", function(data){	
