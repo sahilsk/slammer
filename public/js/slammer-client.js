@@ -85,6 +85,12 @@
 		$(this).addClass( color );
 	});
 	
+	/*
+	**
+	*/
+	//setInterval( function(){ $("#server-status").css('background-color', 'green') ;}, 500);
+	//setInterval( function(){ $("#server-status").css('background-color', 'yellow !important') ;}, 1000);
+	
 	
 	/*
 	||	 Socket.io events handlers
@@ -94,6 +100,8 @@
 	var socket = io.connect('/');
 	var nick ="";
 	socket.on('connect', function(data){
+	
+		$("#server-status").remove();
 		nick = prompt("Enter your nick: ");
 		if( nick.length===0){
 			nick = parseInt(Math.random() * 10000);

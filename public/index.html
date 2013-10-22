@@ -46,6 +46,28 @@
 				position: relative;
 			}
 			
+			@keyframes myfirst
+			{
+			from {background: green;}
+			to {background: yellow;}
+			}
+
+			@-webkit-keyframes myfirst /* Safari and Chrome */
+			{
+			from {background: green;}
+			to {background: yellow;}
+			}
+
+			#server-status{
+				height: 20px;
+				background-color: rgb(240, 235, 115);
+				text-align: center;
+				width: 90%;
+				transition: all 2s;
+				animation: myfirst 5s infinite;
+				-webkit-animation: myfirst 2s infinite; /* Safari and Chrome */
+			}
+			
 			#messageBox{
 				position:relative;
 				width:90%;
@@ -163,10 +185,14 @@
 		<h1 class="logo"> <span class="color_purple">S</span>lammer 
 			<div class="subscript"> ..just another chat client</div>
 		</h1>	
-
+	
+		
 	
 		<div class="slammer_wrapper">
 
+			<div id="server-status">
+				Connecting...
+			</div>
 			
 			<div id="messages">
 				<ul>
